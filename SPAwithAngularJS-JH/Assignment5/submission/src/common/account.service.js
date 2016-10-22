@@ -18,10 +18,10 @@ function AccountService() {
 
   service.setMyInfo = function (myInfo) {
     myinfo.first_name    = myInfo.first_name;
-    myinfo.last_name     = myInfo.first_name;
-    myinfo.email_address = myInfo.email_address;
-    myinfo.phone_number  = myInfo.phone_number;
-    myinfo.favorite_dish = myInfo.favorite_dish;
+    myinfo.last_name     = myInfo.last_name;
+    myinfo.email_address = myInfo.email;
+    myinfo.phone_number  = myInfo.phone;
+    myinfo.favorite_dish = myInfo.favorite;
   };
 
   service.getMyInfo = function (myInfo) {

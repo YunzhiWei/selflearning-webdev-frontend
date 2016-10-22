@@ -183,3 +183,26 @@ h3.menu-item-title {
     width: 100%;
   }
 }
+
+legend {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #3ff;
+}
+
+input {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #03f;
+}
+button {
+  font-size: 24px;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
