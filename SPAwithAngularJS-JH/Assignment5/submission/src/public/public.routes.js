@@ -23,12 +23,12 @@ function routeConfig ($stateProvider) {
       url: '/info',
       templateUrl: 'src/public/account/myinfo.html',
       controller: 'MyInfoController',
-      controllerAs: 'myInfoCtrl'
-      // resolve: {
-      //   menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-      //     return MenuService.getMenuItems($stateParams.category);
-      //   }]
-      // }
+      controllerAs: 'myInfoCtrl',
+      resolve: {
+        myInfo: ['AccountService', function (AccountService) {
+          return AccountService.getMyInfo();
+        }]
+      }
     })
     .state('public.menu', {
       url: '/menu',
