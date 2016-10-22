@@ -10,11 +10,11 @@ function AccountService() {
 
   var myinfo = {};
 
-  myinfo.first_name    = "Chris";
-  myinfo.last_name     = "Wei";
-  myinfo.email_address = "yunzhi.wei@live.com";
-  myinfo.phone_number  = "18621569380";
-  myinfo.favorite_dish = "LA";
+  // myinfo.first_name    = "Chris";
+  // myinfo.last_name     = "Wei";
+  // myinfo.email_address = "yunzhi.wei@live.com";
+  // myinfo.phone_number  = "18621569380";
+  // myinfo.favorite_dish = "LA";
 
   service.setMyInfo = function (myInfo) {
     myinfo.first_name    = myInfo.first_name;
