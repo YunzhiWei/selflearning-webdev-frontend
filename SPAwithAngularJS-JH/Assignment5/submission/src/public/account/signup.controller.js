@@ -4,24 +4,37 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['AccountService'];
-function SignupController(AccountService) {
+SignupController.$inject = ['AccountService', 'MenuService'];
+function SignupController(AccountService, MenuService) {
 
   var $ctrl = this;
 
-  $ctrl.submitted = false;
+  $ctrl.processed = false;
 
   $ctrl.submit = function () {
 
-    console.log("First Name", $ctrl.user.first_name);
-    console.log("Last Name", $ctrl.user.last_name);
-    console.log("Email", $ctrl.user.email);
-    console.log("Phone", $ctrl.user.phone);
-    console.log("Favorite", $ctrl.user.favorite);
+    console.log("First Name: ", $ctrl.user.first_name);
+    console.log("Last Name: ", $ctrl.user.last_name);
+    console.log("Email: ", $ctrl.user.email);
+    console.log("Phone: ", $ctrl.user.phone);
+    console.log("Favorite: ", $ctrl.user.favorite);
 
-    $ctrl.submitted = true;
+    var promise = MenuService.getFavorieItem($ctrl.user.favorite);
 
-    AccountService.setMyInfo($ctrl.user);
+    promise.then(function (response) {
+      console.log("Response: ", response.data);
+      AccountService.setMyInfo($ctrl.user);
+
+      $ctrl.message = "Your information has been saved.";
+      $ctrl.processed = true;
+    })
+    .catch(function (error) {
+      console.log("Something went terribly wrong.", error);
+      console.log("favorite return: ", promise);
+
+      $ctrl.message = "No such menu number exists.";
+      $ctrl.processed = true;
+    });
   };
 
 

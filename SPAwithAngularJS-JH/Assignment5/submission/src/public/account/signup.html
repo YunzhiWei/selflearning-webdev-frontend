@@ -72,11 +72,9 @@
             Form valid? {{ regForm.$valid }}
           </div -->
 
-          <div ng-if="signupCtrl.submitted" class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Your information has been saved.</strong>
+          <div ng-if="signupCtrl.processed">
+            <br>
+            <strong>{{signupCtrl.message}}</strong>
           </div>
 
         </form>
